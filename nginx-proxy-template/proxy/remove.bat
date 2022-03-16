@@ -1,0 +1,1 @@
+docker rm nginx-md-{proxyName}-proxy

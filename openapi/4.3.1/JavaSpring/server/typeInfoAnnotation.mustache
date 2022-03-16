@@ -1,0 +1,10 @@
+{{#jackson}}
+
+// https://github.com/OpenAPITools/openapi-generator/issues/3796 Wenn das gelöst ist, kann die Datei wieder weg
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "{{{discriminator.propertyBaseName}}}", visible = true)
+@JsonTypeName("{{name}}")
+@JsonSubTypes({
+  {{#discriminator.mappedModels}}
+  @JsonSubTypes.Type(value = {{modelName}}.class, name = "{{^vendorExtensions.x-discriminator-value}}{{mappingName}}{{/vendorExtensions.x-discriminator-value}}{{#vendorExtensions.x-discriminator-value}}{{{vendorExtensions.x-discriminator-value}}}{{/vendorExtensions.x-discriminator-value}}"),
+  {{/discriminator.mappedModels}}
+}){{/jackson}}

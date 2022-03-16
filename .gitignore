@@ -1,0 +1,16 @@
+*.bak
+*.contrib*
+*.iml
+*.jar
+*.log
+.classpath
+.idea/
+.project
+.settings/
+LICENSE
+atlassian-ide-plugin.xml
+bin/
+build/
+classes/
+logs/
+out/

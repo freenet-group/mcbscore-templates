@@ -1,0 +1,27 @@
+buildscript {
+	repositories {
+		maven { url project.ARTIFACTORY + "/" + project.GLOBAL_REPOSITORY }
+		mavenLocal()
+	}
+}
+
+plugins {
+	id 'java'
+}
+
+task buildProxyFromTemplate(type: Copy){
+	group 'nginx-proxy'
+	description 'Erstellt einen nginx-Proxy aus der Vorlage'
+	from "proxy"	
+	into "$buildDir"
+	filter { String line -> line.replace("{proxyName}", proxyName).replace("{basePath}", basePath).replace("{upstream}", proxyName.toUpperCase())}
+	doLast {
+        file("$buildDir/km").renameTo(file("$buildDir/km-$proxyName"))
+		file("$buildDir/md").renameTo(file("$buildDir/md-$proxyName"))
+    }
+}
+
+wrapper {
+	gradleVersion = project.GRADLE_VERSION
+	distributionUrl = "https://artifactory.mobilcom.de/artifactory/gradle-distributions/gradle-${gradleVersion}-all.zip"
+}

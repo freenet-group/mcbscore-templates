@@ -1,0 +1,2 @@
+docker rm nginx-md-{proxyName}-proxy
+docker run --name nginx-md-{proxyName}-proxy -d -p 11000:11000 -v %cd%\{proxyName}:/etc/nginx/proxies/md/{proxyName} -v %cd%\logs:/var/log/proxies/{proxyName} -v %cd%\targetservers-local:/etc/nginx/targetservers -t nginx-md-{proxyName}-proxy
