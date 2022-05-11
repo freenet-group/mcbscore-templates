@@ -7,7 +7,7 @@
         "{{{description}}}"{{#required}}, required = true{{/required}}
     {{#oas3}}, schema = @Schema({{/oas3}}
     {{#allowableValues}}{{^oas3}}, {{/oas3}}allowableValues = "{{#values}}{{{.}}}{{^-last}}, {{/-last}}{{#-last}}{{/-last}}{{/values}}"{{/allowableValues}}
-    {{^isContainer}}{{#defaultValue}}, defaultValue = "{{{.}}}"{{/defaultValue}}{{/isContainer}}
+    {{^isContainer}}{{#defaultValue}}{{^oas3}}, {{/oas3}}{{#oas3}}{{#allowableValues}}, {{/allowableValues}}{{/oas3}}defaultValue = "{{{.}}}"{{/defaultValue}}{{/isContainer}}
     {{#oas3}}){{/oas3}})
     {{#useBeanValidation}} @Valid{{/useBeanValidation}}
     {{^isModel}} @RequestParam(value = {{#isMap}}""{{/isMap}}{{^isMap}}"{{baseName}}"{{/isMap}}{{#required}}, required = true{{/required}}{{^required}}, required = false{{/required}}{{^isContainer}}{{#defaultValue}}, defaultValue = "{{{.}}}"{{/defaultValue}}{{/isContainer}}){{/isModel}}
