@@ -4,4 +4,4 @@ Dieses Repository enthält einen Generator zur Erstellung eines nginx-proxy-Repo
 siehe [nginx-proxy-template/readme.md](nginx-proxy-template/readme.md)
 
 ## Kontakt
-it.abba.abr.ent@freenet.ag
+it.abba.abr.entw@freenet.ag
