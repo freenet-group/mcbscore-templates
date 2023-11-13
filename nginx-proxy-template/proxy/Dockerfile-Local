@@ -1,5 +1,5 @@
 FROM docker.mobilcom.de/nginx-plus/nginx-api
-LABEL author="it.abba.abr.entw@md.de"
+LABEL author="tp.sd.back.mcbs@freenet.ag"
 LABEL version="1.0.0"
 WORKDIR /etc/nginx
 
